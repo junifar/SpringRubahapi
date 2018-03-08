@@ -3,9 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <title>Spring Tutorial</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/bower_components/bootstrap/dist/css/bootstrap.min.css}">
 </head>
-<body>
-    <h1>Hello World</h1>
-    <strong>Apa Kabar Dunia</strong>
+<body class="container">
+    <div class="row col-md-12">
+        <h1>Hello World</h1>
+        <strong>Apa Kabar Dunia</strong>
+    </div>
+
+    <script type="text/javascript" th:src="@{/bower_components/jquery/dist/jquery.min.js}"></script>
+    <script type="text/javascript" th:src="@{/bower_components/popper.js/dist/popper.min.js}"></script>
+    <script type="text/javascript" th:src="@{/bower_components/bootstrap/dist/js/bootstrap.min.js}"></script>
 </body>
 </html>

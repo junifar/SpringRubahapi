@@ -6,15 +6,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Spring Tutorial</title>
     <link rel="stylesheet" type="text/css" th:href="@{/bower_components/bootstrap/dist/css/bootstrap.min.css}">
+
 </head>
 <body class="container">
     <div class="row col-md-12">
         <h1>Hello World</h1>
         <strong>Apa Kabar Dunia</strong>
     </div>
+    <div class="row col-md-12">
+        <a href = "#route1">Route1 </a>
+        <a href = "#route2">Route2 </a>
+        <a href = "#route3">Route3 </a>
+    </div>
+    <div class="row col-md-12">
+        <div id="container">Loading...</div>
+    </div>
 
     <script type="text/javascript" th:src="@{/bower_components/jquery/dist/jquery.min.js}"></script>
     <script type="text/javascript" th:src="@{/bower_components/popper.js/dist/popper.min.js}"></script>
     <script type="text/javascript" th:src="@{/bower_components/bootstrap/dist/js/bootstrap.min.js}"></script>
+    <script type="text/javascript" th:src="@{/bower_components/underscore/underscore-min.js}"></script>
+    <script type="text/javascript" th:src="@{/bower_components/backbone/backbone-min.js}"></script>
+    <script type="text/javascript" th:src="@{/js/index.js}"></script>
 </body>
 </html>

@@ -10,7 +10,7 @@ class ProjectInformation(
         val total_project: Int,
         val site_type: String,
         @Id @GeneratedValue(strategy = GenerationType.AUTO)
-        val Id:Long=-1
+        val id:Long=-1
 ){
     private constructor(): this(0, "", 0)
 }

@@ -1,4 +1,4 @@
-package com.rubahapi.rubahapi.controller
+package com.rubahapi.rubahapi.controller.API
 
 import com.rubahapi.rubahapi.model.Greeting
 import org.springframework.web.bind.annotation.RequestMapping

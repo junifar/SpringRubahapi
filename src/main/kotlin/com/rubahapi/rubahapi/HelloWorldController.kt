@@ -3,6 +3,7 @@ package com.rubahapi.rubahapi
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.fasterxml.jackson.module.kotlin.readValue
 import com.rubahapi.rubahapi.model.ProjectInformation
+import org.springframework.ui.Model
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RestController
 import java.net.URL
@@ -16,7 +17,7 @@ class HelloWorldController{
     fun test() = "Baik Kok"
 
     @GetMapping("/test")
-    fun test1(): String {
+    fun test1(model:Model): String {
         val objectMapper = ObjectMapper()
         val map = mapOf(1 to "x", 2 to "Y")
         val sample = objectMapper.writeValueAsString(map)
@@ -27,6 +28,8 @@ class HelloWorldController{
             println("${it.site_type} - ${it.id}")
         }
         System.out.println("TEST 9999")
-        return "123"
+        model.addAttribute(sample1)
+        return "index"
+//        return "123"
     }
 }

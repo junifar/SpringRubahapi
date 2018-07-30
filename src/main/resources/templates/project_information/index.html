@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:replace="~{fragments/header :: header}"></head>
+<body>
+    <nav th:replace="~{fragments/navbar :: navbar}"></nav>
+    <main role="main" class="container">
+        <div class="my-3 p-3 bg-white rounded shadow-sm">
+            <div class="col-md-12">
+                <table class="table border table-sm table-striped" draggable="true" >
+                    <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Site Type</th>
+                        <th>Qty</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="projectInformation_data : ${projectInformationDatas}">
+                        <td th:text="${projectInformation_data.id}">0</td>
+                        <td th:text="${projectInformation_data.site_type}">-</td>
+                        <td th:text="${projectInformation_data.total_project}">0</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+    <footer th:replace="~{fragments/header :: footer}"></footer>
+</body>
+</html>

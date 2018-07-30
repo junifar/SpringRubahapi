@@ -1,4 +1,4 @@
-package com.rubahapi.rubahapi.controller
+package com.rubahapi.rubahapi.controller.API
 
 import com.rubahapi.rubahapi.repository.SaleOrderRepository
 import org.springframework.beans.factory.annotation.Autowired

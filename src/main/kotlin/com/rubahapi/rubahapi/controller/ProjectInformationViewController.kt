@@ -16,9 +16,9 @@ class ProjectInformationViewController{
         val objectMapper = ObjectMapper()
         val url = URL("http://localhost:8080/project_information")
         val projectInformationDatas: List<ProjectInformation> = objectMapper.readValue(url)
-        projectInformationDatas.forEach {
-            println("${it.site_type} - ${it.total_project}")
-        }
+//        projectInformationDatas.forEach {
+//            println("${it.site_type} - ${it.total_project}")
+//        }
         model.addAttribute("projectInformationDatas", projectInformationDatas)
         return "project_information/index"
     }

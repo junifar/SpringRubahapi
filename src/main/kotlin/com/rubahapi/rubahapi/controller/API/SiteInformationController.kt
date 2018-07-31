@@ -12,9 +12,9 @@ class SiteInformationController{
     @Autowired
     lateinit var repository: SiteInformationRepository
 
-    @RequestMapping("/site_information")
+    @RequestMapping("/api/site_information")
     fun findSiteName() = repository.findSiteName()
 
-    @RequestMapping("site_information/{id}")
+    @RequestMapping("/api/site_information/{id}")
     fun findSiteById(@PathVariable id:Long) = repository.findSiteById(id)
 }

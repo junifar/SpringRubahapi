@@ -11,10 +11,10 @@ import java.net.URL
 @Controller
 class ProjectInformationViewController{
 
-    @RequestMapping("/project_information/all")
+    @RequestMapping("/project_information")
     fun projectInformationAll(model:Model):String{
         val objectMapper = ObjectMapper()
-        val url = URL("http://localhost:8080/project_information")
+        val url = URL("http://localhost:8080/api/project_information")
         val projectInformationDatas: List<ProjectInformation> = objectMapper.readValue(url)
 //        projectInformationDatas.forEach {
 //            println("${it.site_type} - ${it.total_project}")

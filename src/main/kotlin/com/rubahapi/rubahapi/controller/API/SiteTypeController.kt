@@ -12,7 +12,7 @@ class SiteTypeController{
     @Autowired
     lateinit var repository: SiteTypeRepository
 
-    @RequestMapping("/site_type")
+    @RequestMapping("/api/site_type")
     fun findAll() = repository.findAll()
 //
 //    @RequestMapping("/site_type/{lastName}")

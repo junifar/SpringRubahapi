@@ -11,6 +11,6 @@ class SaleOrderController{
     @Autowired
     lateinit var repository: SaleOrderRepository
 
-    @RequestMapping("/sale_order")
+    @RequestMapping("/api/sale_order")
     fun findAll() = repository.findAll()
 }

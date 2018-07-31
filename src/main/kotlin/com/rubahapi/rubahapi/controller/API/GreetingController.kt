@@ -13,7 +13,7 @@ class GreetingController{
     val templates:String = "Hello, %s"
     val counter:AtomicLong = AtomicLong()
 
-    @RequestMapping("/greeting")
+    @RequestMapping("/api/greeting")
     fun greeting(@RequestParam(value = "name", defaultValue = "World") name: String) = Greeting(
             counter.incrementAndGet(),
             "Hello, $name")

@@ -1,6 +1,6 @@
-package com.rubahapi.rubahapi.repository
+package com.rubahapi.rubahapi.repository.maintenancecorrective
 
-import com.rubahapi.rubahapi.model.MaintenanceCorrective
+import com.rubahapi.rubahapi.model.maintenancecorrective.MaintenanceCorrective
 import org.springframework.data.jpa.repository.Query
 import org.springframework.data.repository.CrudRepository
 import org.springframework.scheduling.annotation.Async
@@ -21,7 +21,9 @@ class ConstantMaintenanceCorrective{
                             LEFT JOIN "public".project_site_type ON "public".project_project.site_type_id = "public".project_site_type."id"
                             LEFT JOIN "public".account_analytic_account ON "public".project_project.analytic_account_id = "public".account_analytic_account."id"
                             WHERE
-                            "public".project_project.site_type_id = 7
+                            "public".project_project.site_type_id = 7 AND
+                            "public".project_site.tahun IS NOT NULL AND
+                            "public".project_site.bulan IS NOT NULL
                             """
     }
 }

@@ -1,4 +1,4 @@
-package com.rubahapi.rubahapi.model
+package com.rubahapi.rubahapi.model.maintenancecorrective
 
 import javax.persistence.Entity
 import javax.persistence.Id

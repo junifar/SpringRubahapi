@@ -1,6 +1,6 @@
-package com.rubahapi.rubahapi.controller.API
+package com.rubahapi.rubahapi.controller.API.maintenancecorrective
 
-import com.rubahapi.rubahapi.repository.MaintenanceCorrectiveRepository
+import com.rubahapi.rubahapi.repository.maintenancecorrective.MaintenanceCorrectiveRepository
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController

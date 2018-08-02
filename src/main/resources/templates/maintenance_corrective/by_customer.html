@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:replace="~{fragments/header :: header}"></head>
+<body class="bg-light">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.0.2/themes/blue/pace-theme-loading-bar.min.css" />
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"/>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.jqueryui.min.css"/>
+
+    <style type="text/css">
+        body > :not(.pace),body:before,body:after {
+            -webkit-transition:opacity .4s ease-in-out;
+            -moz-transition:opacity .4s ease-in-out;
+            -o-transition:opacity .4s ease-in-out;
+            -ms-transition:opacity .4s ease-in-out;
+            transition:opacity .4s ease-in-out
+        }
+
+        body:not(.pace-done) > :not(.pace),body:not(.pace-done):before,body:not(.pace-done):after {
+            opacity:0
+        }
+
+        div.dataTables_wrapper {
+            width: auto;
+            margin: 0 auto;
+        }
+    </style>
+    <script
+            src="https://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+            crossorigin="anonymous"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.0.2/pace.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.19/js/dataTables.jqueryui.min.js"></script>
+
+    <nav th:replace="~{fragments/navbar :: navbar}"></nav>
+    <main role="main" class="container">
+        <div class="my-3 p-3 bg-white rounded shadow-sm">
+            <div class="col-md-12">
+                <div class="row">
+                    <h3 >Maintenance Corrective Project List</h3>
+                </div>
+                <div class="row">
+                    <table class="table border table-sm table-striped">
+                        <thead>
+                            <tr>
+                                <th>Tahun</th>
+                                <th>Customer Name</th>
+                                <th>Nilai PO</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr th:each="maintenanceCorrectiveByCustomerData : ${maintenanceCorrectiveByCustomerDataList}">
+                                <td th:text="${maintenanceCorrectiveByCustomerData.tahun}">-</td>
+                                <td th:text="${maintenanceCorrectiveByCustomerData.customer_name}">-</td>
+                                <td th:text="${#numbers.formatDecimal(maintenanceCorrectiveByCustomerData.nilai_po, 5,'POINT', 2, 'COMMA')}">-</td>
+                                <!--<td th:text="${maintenanceCorrectiveByCustomerData.nilai_po}">-</td>-->
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

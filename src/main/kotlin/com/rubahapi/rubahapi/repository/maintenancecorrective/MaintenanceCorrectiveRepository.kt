@@ -1,6 +1,6 @@
 package com.rubahapi.rubahapi.repository.maintenancecorrective
 
-import com.rubahapi.rubahapi.model.maintenancecorrective.MaintenanceCorrective
+import com.rubahapi.rubahapi.model.maintenancepreventive.MaintenancePreventive
 import org.springframework.data.jpa.repository.Query
 import org.springframework.data.repository.CrudRepository
 import org.springframework.scheduling.annotation.Async
@@ -28,9 +28,9 @@ class ConstantMaintenanceCorrective{
     }
 }
 
-interface MaintenanceCorrectiveRepository: CrudRepository<MaintenanceCorrective, Long>{
+interface MaintenanceCorrectiveRepository: CrudRepository<MaintenancePreventive, Long>{
 
     @Async
     @Query(ConstantMaintenanceCorrective.QUERY, nativeQuery = true)
-    fun getAll(): Iterable<MaintenanceCorrective>
+    fun getAll(): Iterable<MaintenancePreventive>
 }

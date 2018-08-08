@@ -1,10 +1,10 @@
-package com.rubahapi.rubahapi.model.maintenancecorrective
+package com.rubahapi.rubahapi.model.maintenancepreventive
 
 import javax.persistence.Entity
 import javax.persistence.Id
 
 @Entity
-class MaintenanceCorrective(
+class MaintenancePreventive(
     @Id
     val id: Long,
     val project_id: String,

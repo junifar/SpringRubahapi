@@ -1,6 +1,6 @@
 package com.rubahapi.rubahapi.repository.maintenancecorrective
 
-import com.rubahapi.rubahapi.model.maintenancecorrective.MaintenanceCorrectiveByCustomer
+import com.rubahapi.rubahapi.model.maintenancepreventive.MaintenancePreventiveByCustomer
 import org.springframework.data.jpa.repository.Query
 import org.springframework.data.repository.CrudRepository
 import org.springframework.scheduling.annotation.Async
@@ -9,10 +9,11 @@ class ConstantMaintenanceCorrectiveByCustomerRepository{
     companion object {
         const val QUERY = """
                         SELECT
-                            "public".res_partner."id",
+                            ROW_NUMBER() OVER (ORDER BY "public".res_partner."id") AS id,
+                            "public".res_partner."id" AS customer_id,
                             "public".res_partner."name" AS customer_name,
                             "public".project_site.tahun,
-                            SUM(A.nilai_po) AS nilai_po
+                            COALESCE(SUM(A.nilai_po),0) AS nilai_po
                         FROM
                             "public".project_project
                         LEFT JOIN "public".project_site ON "public".project_project.site_id = "public".project_site."id"
@@ -40,9 +41,9 @@ class ConstantMaintenanceCorrectiveByCustomerRepository{
     }
 }
 
-interface MaintenanceCorrectiveByCustomerRepository: CrudRepository<MaintenanceCorrectiveByCustomer, Long>{
+interface MaintenanceCorrectiveByCustomerRepository: CrudRepository<MaintenancePreventiveByCustomer, Long>{
 
     @Async
     @Query(ConstantMaintenanceCorrectiveByCustomerRepository.QUERY, nativeQuery = true)
-    fun getAll(): Iterable<MaintenanceCorrectiveByCustomer>
+    fun getAll1(): Iterable<MaintenancePreventiveByCustomer>
 }

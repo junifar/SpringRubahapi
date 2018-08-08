@@ -38,24 +38,27 @@
         <div class="my-3 p-3 bg-white rounded shadow-sm">
             <div class="col-md-12">
                 <div class="row">
-                    <h3 >Maintenance Corrective Project List</h3>
+                    <h3 >Maintenance Preventive Project List</h3>
                 </div>
                 <div class="row">
                     <table class="table border table-sm table-striped">
                         <thead>
-                            <tr>
-                                <th>Tahun</th>
-                                <th>Customer Name</th>
-                                <th>Nilai PO</th>
-                            </tr>
+                        <tr>
+                            <th>Tahun</th>
+                            <th>Customer Name</th>
+                            <th>Nilai PO</th>
+                        </tr>
                         </thead>
                         <tbody>
-                            <tr th:each="maintenanceCorrectiveByCustomerData : ${maintenanceCorrectiveByCustomerDataList}">
-                                <td th:text="${maintenanceCorrectiveByCustomerData.tahun}">-</td>
-                                <td th:text="${maintenanceCorrectiveByCustomerData.customer_name}">-</td>
-                                <td th:text="${#numbers.formatDecimal(maintenanceCorrectiveByCustomerData.nilai_po, 5,'POINT', 2, 'COMMA')}">-</td>
-                                <!--<td th:text="${maintenanceCorrectiveByCustomerData.nilai_po}">-</td>-->
-                            </tr>
+                            <span th:each="maintenanceCorrectiveByCustomerDataByYear : ${maintenanceCorrectiveByCustomerDataListByYear}">
+                                <tr>
+                                    <th colspan="3" th:text="${maintenanceCorrectiveByCustomerDataByYear.year}"></th>
+                                </tr>
+                                <tr th:each="maintenanceCorrectiveByCustomerDetailDataByYear : ${maintenanceCorrectiveByCustomerDataByYear.maintenancePreventiveList}">
+                                    <td colspan="2" th:text="${maintenanceCorrectiveByCustomerDetailDataByYear.customer_name}"></td>
+                                    <td class="pull-right" th:text="${#numbers.formatDecimal(maintenanceCorrectiveByCustomerDetailDataByYear.nilai_po, 1, 'POINT', 2, 'COMMA')}"></td>
+                                </tr>
+                            </span>
                         </tbody>
                     </table>
                 </div>

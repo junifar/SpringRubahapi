@@ -54,20 +54,12 @@ class MaintenancePreventiveViewController{
             maintenancePreventiveByCustomerDataList.forEach{
                 itemDetail ->
                 if (item.year == itemDetail.tahun){
-                    println(itemDetail.customer_name)
                     maintenancePreventiveByCustomers.add(itemDetail)
                 }
             }
             item.maintenancePreventiveList = maintenancePreventiveByCustomers
         }
 
-//        yearGroup.forEach{
-//            item ->
-//            println(item.year)
-//            item.maintenancePreventiveList?.forEach { dataItem ->
-//                println(dataItem.customer_name)
-//            }
-//        }
         model.addAttribute("maintenanceCorrectiveByCustomerDataList", maintenancePreventiveByCustomerDataList)
         model.addAttribute("maintenanceCorrectiveByCustomerDataListByYear", yearGroup)
         return "maintenance_corrective/by_customer"

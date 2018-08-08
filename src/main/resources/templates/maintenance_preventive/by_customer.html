@@ -2,10 +2,10 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head th:replace="~{fragments/header :: header}"></head>
 <body class="bg-light">
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
+    <!--<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.0.2/themes/blue/pace-theme-loading-bar.min.css" />
-    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"/>
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.jqueryui.min.css"/>
+    <!--<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"/>-->
+    <!--<link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.jqueryui.min.css"/>-->
 
     <style type="text/css">
         body > :not(.pace),body:before,body:after {
@@ -41,26 +41,32 @@
                     <h3 >Maintenance Preventive Project List</h3>
                 </div>
                 <div class="row">
+                    <div class="table-responsive">
                     <table class="table border table-sm table-striped">
                         <thead>
                         <tr>
                             <th>Tahun</th>
                             <th>Customer Name</th>
                             <th>Nilai PO</th>
+                            <th>Action</th>
                         </tr>
                         </thead>
                         <tbody>
                             <span th:each="maintenanceCorrectiveByCustomerDataByYear : ${maintenanceCorrectiveByCustomerDataListByYear}">
                                 <tr>
-                                    <th colspan="3" th:text="${maintenanceCorrectiveByCustomerDataByYear.year}"></th>
+                                    <th colspan="4" th:text="${maintenanceCorrectiveByCustomerDataByYear.year}"></th>
                                 </tr>
                                 <tr th:each="maintenanceCorrectiveByCustomerDetailDataByYear : ${maintenanceCorrectiveByCustomerDataByYear.maintenancePreventiveList}">
                                     <td colspan="2" th:text="${maintenanceCorrectiveByCustomerDetailDataByYear.customer_name}"></td>
                                     <td class="pull-right" th:text="${#numbers.formatDecimal(maintenanceCorrectiveByCustomerDetailDataByYear.nilai_po, 1, 'POINT', 2, 'COMMA')}"></td>
+                                    <td class="text-center">
+                                        <a th:href="@{/detail/${maintenanceCorrectiveByCustomerDataByYear.year}/${maintenanceCorrectiveByCustomerDetailDataByYear.customer_id}}" class="btn btn-primary">Details</a>
+                                    </td>
                                 </tr>
                             </span>
                         </tbody>
                     </table>
+                    </div>
                 </div>
             </div>
         </div>

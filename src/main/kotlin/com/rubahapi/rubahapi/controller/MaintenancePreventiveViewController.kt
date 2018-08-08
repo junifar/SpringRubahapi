@@ -25,7 +25,7 @@ class MaintenancePreventiveViewController{
         val url = URL("http://localhost:8080/api/maintenance_preventive")
         val maintenancePreventiveDataList: List<MaintenancePreventive> = objectMapper.readValue(url)
         model.addAttribute("maintenanceCorrectiveDataList", maintenancePreventiveDataList)
-        return "maintenance_corrective/index"
+        return "maintenance_preventive/index"
     }
 
     @RequestMapping("/maintenance_preventive/by_customer")
@@ -62,6 +62,6 @@ class MaintenancePreventiveViewController{
 
         model.addAttribute("maintenanceCorrectiveByCustomerDataList", maintenancePreventiveByCustomerDataList)
         model.addAttribute("maintenanceCorrectiveByCustomerDataListByYear", yearGroup)
-        return "maintenance_corrective/by_customer"
+        return "maintenance_preventive/by_customer"
     }
 }

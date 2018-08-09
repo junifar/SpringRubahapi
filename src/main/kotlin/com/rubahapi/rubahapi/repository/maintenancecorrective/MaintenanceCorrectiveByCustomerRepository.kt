@@ -4,6 +4,7 @@ import com.rubahapi.rubahapi.model.maintenancepreventive.MaintenancePreventiveBy
 import org.springframework.data.jpa.repository.Query
 import org.springframework.data.repository.CrudRepository
 import org.springframework.scheduling.annotation.Async
+import org.springframework.stereotype.Repository
 
 class ConstantMaintenanceCorrectiveByCustomerRepository{
     companion object {
@@ -41,9 +42,10 @@ class ConstantMaintenanceCorrectiveByCustomerRepository{
     }
 }
 
+@Repository
 interface MaintenanceCorrectiveByCustomerRepository: CrudRepository<MaintenancePreventiveByCustomer, Long>{
 
     @Async
     @Query(ConstantMaintenanceCorrectiveByCustomerRepository.QUERY, nativeQuery = true)
-    fun getAll1(): Iterable<MaintenancePreventiveByCustomer>
+    fun getAll(): Iterable<MaintenancePreventiveByCustomer>
 }

@@ -52,11 +52,12 @@
                         </tr>
                         </thead>
                         <tbody>
-                            <span th:each="maintenanceCorrectiveByCustomerDataByYear : ${maintenanceCorrectiveByCustomerDataListByYear}">
+                            <span th:each="maintenanceCorrectiveByCustomerDataByYear : ${maintenanceCorrectiveByCustomerDataList}">
                                 <tr>
                                     <th colspan="4" th:text="${maintenanceCorrectiveByCustomerDataByYear.year}"></th>
+
                                 </tr>
-                                <tr th:each="maintenanceCorrectiveByCustomerDetailDataByYear : ${maintenanceCorrectiveByCustomerDataByYear.maintenancePreventiveList}">
+                                <tr th:each="maintenanceCorrectiveByCustomerDetailDataByYear : ${maintenanceCorrectiveByCustomerDataByYear.line_data}">
                                     <td colspan="2" th:text="${maintenanceCorrectiveByCustomerDetailDataByYear.customer_name}"></td>
                                     <td class="pull-right" th:text="${#numbers.formatDecimal(maintenanceCorrectiveByCustomerDetailDataByYear.nilai_po, 1, 'POINT', 2, 'COMMA')}"></td>
                                     <td class="text-center">
